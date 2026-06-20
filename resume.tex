@@ -14,9 +14,11 @@
 \usepackage{xcolor}
 \usepackage{verbatim}
 \usepackage{enumitem}
-\usepackage[pdftex]{hyperref}
+\usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
 \usepackage{multicol}
+\setlength{\multicolsep}{0pt}
+\input{glyphtounicode}
 
 \definecolor{bulletblue}{RGB}{0,0,180}
 
@@ -25,13 +27,14 @@
 \fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
+\setlength{\footskip}{4.5pt}
 
 % Adjust margins
 \addtolength{\oddsidemargin}{-0.375in}
 \addtolength{\evensidemargin}{-0.375in}
 \addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1.0in}
+\addtolength{\topmargin}{-.65in}
+\addtolength{\textheight}{1.3in}
 
 \urlstyle{same}
 
@@ -39,59 +42,75 @@
 \raggedright
 \setlength{\tabcolsep}{0in}
 
-% Sections formatting
+% Ensure PDF text stays machine-readable for ATS parsers (ligatures don't break on copy/extract)
+\pdfgentounicode=1
+
+% Sections formatting -- consistent gap ABOVE every heading, and a single
+% controlled gap BELOW the rule (sectiongap), so every section starts
+% the same visual distance from the rule.
+\titlespacing*{\section}{0pt}{4pt}{2pt}
 \titleformat{\section}{
-  \vspace{-7pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-8pt}]
+  \scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule]
+
+% Single uniform spacing constant applied directly after every \section heading
+% (kept at 0pt now that titlespacing handles the gap below the rule)
+\newcommand{\sectiongap}{\vspace{0pt}}
 
 %-------------------------
 % Custom commands
+% Single uniform spacing constant used after every entry/bullet, everywhere
+\newcommand{\itemgap}{\vspace{2pt}}
+
 \newcommand{\resumeItem}[2]{
   \item\small{
-    \textbf{#1}{: #2 \vspace{-3pt}}
+    \textbf{#1}{: #2}
   }
 }
 
 \newcommand{\resumeItemPlain}[1]{
-  \item\small{#1 \vspace{-2pt}}
+  \item\small{#1}
 }
 
 \newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
+  \item[]
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
+      \textbf{#1} & #2 \\[-2pt]
       \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-6pt}
+    \end{tabular*}\vspace{0pt}
 }
 
-\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}}
 
 % Project entry: title on its own line, description starts on the next line
 \newcommand{\resumeProjectItem}[2]{
   \item\small{
-    \textbf{#1}\\[-1pt]
-    #2 \vspace{-5pt}
-  }
+    \textbf{#1}\\[2pt]
+    #2}
 }
 
 % Compact variants for lower-priority sections (Skills, Certifications, Activities)
 \newcommand{\resumeCompactItem}[2]{
-  \item\small{\textbf{#1}{: #2}}\vspace{-7pt}
+  \item\small{\textbf{#1}{: #2}}
 }
 \newcommand{\resumeCompactPlain}[1]{
-  \item\small{#1}\vspace{-7pt}
+  \item\small{#1}
 }
+\setlength{\parskip}{0pt}
 
 \renewcommand{\labelitemii}{$\circ$}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-6pt}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-7pt}}
+% Uniform vertical rhythm: every list (experience, projects, education,
+% activities) uses the same itemsep/parsep/topsep so gaps between entries
+% match exactly across sections.
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*, itemsep=4pt, parsep=0pt, topsep=1pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=1pt, parsep=0pt, topsep=1pt, leftmargin=18pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{1pt}}
 
-% Blue-bullet two-column list style for Skills / Certifications
+% Blue-bullet list style for Skills / Certifications -- same itemize family, same spacing
 \newenvironment{bulletcol}{
-  \begin{itemize}[leftmargin=12pt, label={\color{bulletblue}\textbullet}, itemsep=2pt, topsep=2pt, parsep=0pt]
+  \begin{itemize}[leftmargin=14pt, label={\color{bulletblue}\textbullet}, itemsep=2pt, topsep=1pt, parsep=0pt]
 }{
   \end{itemize}
 }
@@ -103,11 +122,11 @@
 
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-  \textbf{\Large Kaligotla Sri Datta Sai Vithal} & Email: \href{mailto:example@example.com}{example@example.com} \\[1pt]
-  Full Stack Developer & Mobile: +91-XXXXXXXXXX \\[1pt]
+  \textbf{\Large Kaligotla Vithal} & Email: \href{mailto:example@example.com}{example@example.com} \\[1pt]
+  Full Stack Developer & Mobile: 123-456-789-0 \\[1pt]
   GitHub: \href{https://github.com/example}{github.com/example} & LinkedIn: \href{https://linkedin.com/in/example}{linkedin.com/in/example} \\
 \end{tabular*}
-\vspace{-8pt}
+\vspace{-2pt}
 
 %-----------SUMMARY-----------------
 \section{Summary}
@@ -118,9 +137,8 @@
 %-----------EXPERIENCE-----------------
 \section{Experience}
 \resumeSubHeadingListStart
-
   \resumeSubheading
-    {SmartBridge}{Bhimavaram, India}
+    {SmartBridge}{Remote}
     {Data Science Intern}{2025}
     \resumeItemListStart
       \resumeItem{Data Analysis}
@@ -130,41 +148,35 @@
       \resumeItem{Dashboards}
         {Designed 3+ interactive Tableau dashboards and data stories to support data-driven decision-making for stakeholder review.}
     \resumeItemListEnd
-
 \resumeSubHeadingListEnd
 
 %-----------PROJECTS-----------------
 \section{Projects}
 \resumeSubHeadingListStart
-
   \resumeProjectItem{AgriVision -- Crop Recommendation System}
-    {Full-stack ML web application that recommends crops based on soil and weather inputs; trained the prediction model, built a Flask backend serving inference APIs, and integrated frontend forms for user interaction. Built during Smart India Hackathon (Internal Round).}
-
+    {Full-stack ML web application that recommends crops based on soil and weather inputs; trained the prediction model with scikit-learn, built a Flask backend serving inference APIs, and integrated frontend forms for user interaction. Built during Smart India Hackathon (Internal Round).}
   \resumeProjectItem{College Food Choices -- Data Visualization (Tableau)}
     {Cleaned and analyzed a college dietary survey dataset using Python and SQL, then built interactive Tableau dashboards surfacing food, health, and lifestyle trends across the student population.}
-
   \resumeProjectItem{RepoLogic -- GitHub Repository Analyzer}
     {AI-powered web application that explains public GitHub repositories using Retrieval-Augmented Generation (RAG) with the Gemini API; lets users select code or ask natural-language questions and returns explanations with file and line references.}
-
 \resumeSubHeadingListEnd
 
 %-----------EDUCATION-----------------
 \section{Education}
-\resumeSubHeadingListStart
+\begin{itemize}[leftmargin=*, itemsep=2pt, parsep=0pt, topsep=1pt]
   \resumeSubheading
-    {Vishnu Institute of Technology}{Bhimavaram, India}
-    {B.Tech in CSE (AI \& Data Science); CGPA: 8.33}{2023 -- 2027}
+    {VIT}{Andhra Pradesh}
+    {B.Tech in CSE (AI \& Data Science); CGPA: 8.8}{2023 -- 2027}
   \resumeSubheading
-    {Sri Chaitanya College}{Chittoor, India}
-    {Intermediate (MPC); 85.1\%}{2021 -- 2023}
+    {Sri Chaitanya}{Andhra Pradesh}
+    {Intermediate (MPC); 85\%}{2021 -- 2023}
   \resumeSubheading
-    {Apollo EM High School}{Palakollu, India}
-    {SSC; 92\%}{2021}
-\resumeSubHeadingListEnd
+    {Sri Chaitanya}{Andhra Pradesh}
+    {SSC; 88\%}{2021}
+\end{itemize}
 
 %--------PROGRAMMING SKILLS------------
 \section{Technical Skills}
-\vspace{-10pt}
 \begin{multicols}{2}
 \begin{bulletcol}
 \small
@@ -176,11 +188,9 @@
 \item \textbf{Version Control:} Git, GitHub, VS Code, Jupyter Notebook
 \end{bulletcol}
 \end{multicols}
-\vspace{-14pt}
 
 %-----------CERTIFICATIONS-----------------
 \section{Certifications}
-\vspace{-2pt}
 \begin{bulletcol}
 \small
 \item Programming in Java --- NPTEL (IIT Kharagpur)
@@ -188,12 +198,11 @@
 \item Data Science Virtual Internship --- Altair
 \item Web Full Stack Development --- EduSkills
 \end{bulletcol}
-\vspace{-14pt}
 
 %-----------ACTIVITIES-----------------
 \section{Activities}
 \resumeSubHeadingListStart
-  \resumeCompactPlain{Participated in Smart India Hackathon (Internal Round), Vishnu Institute of Technology -- built the AgriVision project during the event.}
+  \resumeCompactPlain{Participated in Smart India Hackathon (Internal Round) -- built the AgriVision project during the event.}
   \resumeCompactPlain{Open Source Contributor, GirlScript Summer of Code (GSSoC) 2026 -- contributed to open-source repositories via pull requests and issue resolution, gaining hands-on experience with documentation, the PR review process, and resolving merge conflicts.}
 \resumeSubHeadingListEnd
 
