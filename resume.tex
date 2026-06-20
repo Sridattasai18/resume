@@ -1,0 +1,182 @@
+%-------------------------
+% Resume in Latex
+% Based on the sb2nov / jakegut resume template structure
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.375in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-6pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeItemPlain}[1]{
+  \item\small{#1 \vspace{-2pt}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{0pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+% Compact variants for lower-priority sections (Skills, Certifications, Activities)
+\newcommand{\resumeCompactItem}[2]{
+  \item\small{\textbf{#1}{: #2}}\vspace{-7pt}
+}
+\newcommand{\resumeCompactPlain}[1]{
+  \item\small{#1}\vspace{-7pt}
+}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-6pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-7pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\Large Kaligotla Sri Datta Sai Vithal} & Email: \href{mailto:example@example.com}{example@example.com} \\[1pt]
+  Full Stack Developer Intern & Mobile: +91-XXXXXXXXXX \\[1pt]
+  GitHub: \href{https://github.com/example}{github.com/example} & LinkedIn: \href{https://linkedin.com/in/example}{linkedin.com/in/example} \\
+\end{tabular*}
+\vspace{-8pt}
+
+%-----------SUMMARY-----------------
+\section{Summary}
+\resumeSubHeadingListStart
+  \resumeItemPlain{Computer Science (AI \& Data Science) undergraduate seeking a Full Stack Developer internship. Hands-on experience building and deploying full-stack web applications with Flask, Firebase, and JavaScript, with additional exposure to machine learning and data analytics through a Data Science internship and 3 independent projects.}
+\resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+    {SmartBridge}{Bhimavaram, India}
+    {Data Science Intern}{2025}
+    \resumeItemListStart
+      \resumeItem{Data Analysis}
+        {Analyzed and visualized datasets using Python, SQL, and Tableau as part of a structured data science internship program.}
+      \resumeItem{Data Cleaning}
+        {Cleaned and processed raw survey and tabular datasets, resolving missing values and inconsistent formatting to improve data quality for downstream analysis.}
+      \resumeItem{Dashboards}
+        {Designed 3+ interactive Tableau dashboards and data stories to support data-driven decision-making for stakeholder review.}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------------
+\section{Projects}
+\resumeSubHeadingListStart
+
+  \resumeSubItem{AgriVision -- Crop Recommendation System}
+    {Full-stack ML web application that recommends crops based on soil and weather inputs; trained the prediction model, built a Flask backend serving inference APIs, and integrated frontend forms for user interaction. Built during Smart India Hackathon (Internal Round).}
+
+  \resumeSubItem{College Food Choices -- Data Visualization (Tableau)}
+    {Cleaned and analyzed a college dietary survey dataset using Python and SQL, then built interactive Tableau dashboards surfacing food, health, and lifestyle trends across the student population.}
+
+  \resumeSubItem{RepoLogic -- GitHub Repository Analyzer}
+    {AI-powered web application that explains public GitHub repositories using Retrieval-Augmented Generation (RAG) with the Gemini API; lets users select code or ask natural-language questions and returns explanations with file and line references.}
+
+\resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------------
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Vishnu Institute of Technology}{Bhimavaram, India}
+    {B.Tech in CSE (AI \& Data Science); CGPA: 8.33}{2023 -- 2027}
+  \resumeSubheading
+    {Sri Chaitanya College}{Chittoor, India}
+    {Intermediate (MPC); 85.1\%}{2021 -- 2023}
+  \resumeSubheading
+    {Apollo EM High School}{Palakollu, India}
+    {SSC; 92\%}{2021}
+\resumeSubHeadingListEnd
+
+%--------PROGRAMMING SKILLS------------
+\section{Technical Skills}
+\resumeSubHeadingListStart
+  \item\small{
+    \textbf{Languages}: Python, Java, JavaScript, SQL
+    \hfill
+    \textbf{Web Dev}: HTML, CSS, React, Flask, Node.js, Firebase
+  }\vspace{2pt}
+  \item\small{
+    \textbf{Data/ML}: Pandas, NumPy, scikit-learn, Tableau, Excel
+    \hfill
+    \textbf{Tools}: Git, GitHub, VS Code, Jupyter, REST APIs
+  }\vspace{-7pt}
+\resumeSubHeadingListEnd
+
+%-----------CERTIFICATIONS-----------------
+\section{Certifications}
+\resumeSubHeadingListStart
+  \item\small{
+    Programming in Java -- NPTEL (IIT Kharagpur)
+    \hfill
+    Pandas \& NumPy -- Kaggle
+  }\vspace{2pt}
+  \item\small{
+    Data Science Virtual Internship -- Altair
+    \hfill
+    Web Full Stack Development -- EduSkills
+  }\vspace{-7pt}
+\resumeSubHeadingListEnd
+
+%-----------ACTIVITIES-----------------
+\section{Activities}
+\resumeSubHeadingListStart
+  \resumeCompactPlain{Participated in Smart India Hackathon (Internal Round), Vishnu Institute of Technology -- built the AgriVision project during the event.}
+\resumeSubHeadingListEnd
+
+\end{document}
